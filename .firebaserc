@@ -1,7 +1,8 @@
 {
   "projects": {
-    "default": "auc2-cd5a6",
-    "alias": "print-6a70a"
+    "default": "vgpdf-df4f0",
+    "alias": "print-6a70a",
+    "staging": "vgpdf-df4f0"
   },
   "targets": {},
   "etags": {}
