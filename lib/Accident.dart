@@ -5,7 +5,7 @@ class Accident extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Accident Detection System',
+        title: const Text('Video Processing',
             style: TextStyle(
                 fontSize: 30, color: Color.fromARGB(255, 2, 26, 240))),
         backgroundColor:
@@ -17,7 +17,7 @@ class Accident extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/car.png'), // Replace with your image path
+            image: AssetImage('assets/ca.jpg'), // Replace with your image path
             fit: BoxFit.cover, // Cover the entire screen
           ),
         ),

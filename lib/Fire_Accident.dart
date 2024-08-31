@@ -5,7 +5,9 @@ class FireAccident extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Accident Detection System'),
+        title: const Text('Book Your Slot',
+            style: TextStyle(
+                fontSize: 30, color: Color.fromARGB(255, 2, 26, 240))),
         backgroundColor:
             const Color.fromARGB(255, 255, 85, 59), // Make AppBar transparent
         elevation: 0, // Remove shadow below AppBar
@@ -15,7 +17,7 @@ class FireAccident extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/ss.png'), // Replace with your image path
+            image: AssetImage('assets/ca.jpg'), // Replace with your image path
             fit: BoxFit.cover, // Cover the entire screen
           ),
         ),
@@ -45,7 +47,7 @@ class FireAccident extends StatelessWidget {
                   // Implement the logic for the Predict button here
                 },
                 child: const Text(
-                  'Predict',
+                  'Book Your Slot',
                   style: TextStyle(fontSize: 25),
                 ),
               ),

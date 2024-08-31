@@ -89,7 +89,7 @@ class _LoginPageState extends State<LoginPage> {
         children: [
           Positioned.fill(
             child: Image.asset(
-              'assets/ai.png', // Replace with your image path
+              'assets/cars.png', // Replace with your image path
               fit: BoxFit.cover,
             ),
           ),
@@ -100,7 +100,7 @@ class _LoginPageState extends State<LoginPage> {
             child: Align(
               alignment: Alignment.topCenter,
               child: Text(
-                'REAL TIME INCIDENT NOTIFICATION SYSTEM FOR PUBLIC SAFETY USING CCTV FEEDS',
+                '',
                 style: TextStyle(
                   fontSize: 35,
                   fontWeight: FontWeight.bold,

@@ -22,7 +22,7 @@ class WelcomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Real Time Incident Detection System',
+          'AI ENABLED CAR PARKING SYSTEM',
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 30,
@@ -67,7 +67,7 @@ class WelcomePage extends StatelessWidget {
         children: [
           Positioned.fill(
             child: Image.asset(
-              'assets/ai.png',
+              'assets/cars.png',
               fit: BoxFit.cover,
             ),
           ),
@@ -79,24 +79,24 @@ class WelcomePage extends StatelessWidget {
                   padding: EdgeInsets.only(left: 70.0),
                   child: TileWidget(
                     title: ' ',
-                    imagePath: 'assets/rec.png',
-                    buttonText: 'Crime Detection',
+                    imagePath: 'assets/spaces.png',
+                    buttonText: 'Train Model',
                   ),
                 ),
                 Padding(
                   padding: EdgeInsets.only(right: 70.0),
                   child: TileWidget(
                     title: ' ',
-                    imagePath: 'assets/ac.png',
-                    buttonText: 'Accident Detection',
+                    imagePath: 'assets/glass.png',
+                    buttonText: 'Video Processing',
                   ),
                 ),
                 Padding(
                   padding: EdgeInsets.only(right: 70.0),
                   child: TileWidget(
                     title: ' ',
-                    imagePath: 'assets/fi.png',
-                    buttonText: 'Fire Accident Detection',
+                    imagePath: 'assets/booking.png',
+                    buttonText: 'Book Slot',
                   ),
                 ),
               ],
@@ -150,19 +150,19 @@ class TileWidget extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 switch (buttonText) {
-                  case 'Crime Detection':
+                  case 'Train Model':
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => Crime()),
                     );
                     break;
-                  case 'Accident Detection':
+                  case 'Video Processing':
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => Accident()),
                     );
                     break;
-                  case 'Fire Accident Detection':
+                  case 'Book Slot':
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => FireAccident()),

@@ -3,35 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:typed_data';
 
-Future<void> _predict(BuildContext context) async {
-  // Add BuildContext parameter
-  final response =
-      await http.get(Uri.parse('http://localhost:51662/process_image'));
-  if (response.statusCode == 200 &&
-      response.headers['content-type'] == 'image/png') {
-    // Convert the response body to a Uint8List
-    Uint8List bytes = response.bodyBytes;
-    // Display the image
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          content: Image.memory(bytes),
-        );
-      },
-    );
-  } else {
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text('Failed to process image. Please try again later.')));
-  }
-}
 
 class Crime extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Crime Detection System',
+        title: const Text('Train Your Model',
             style: TextStyle(
                 fontSize: 30, color: Color.fromARGB(255, 2, 240, 10))),
         backgroundColor:
@@ -43,7 +21,7 @@ class Crime extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/qw.jpg'), // Replace with your image path
+            image: AssetImage('assets/ca.jpg'), // Replace with your image path
             fit: BoxFit.cover, // Cover the entire screen
           ),
         ),
@@ -71,11 +49,10 @@ class Crime extends StatelessWidget {
               SizedBox(height: 20), // Add some space between the buttons
               ElevatedButton(
                 onPressed: () {
-                  _predict(context);
                   // Implement the logic for the Predict button here
                 },
                 child: const Text(
-                  'Predict',
+                  'Train Model',
                   style: TextStyle(fontSize: 25),
                 ),
               ),
