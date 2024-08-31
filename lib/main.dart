@@ -1,8 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'HomePage.dart'; // Import the WelcomePage
 
-Future<void> main() async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: const FirebaseOptions(
@@ -46,15 +47,18 @@ class _LoginPageState extends State<LoginPage> {
 
       // If the login is successful, userCredential will not be null
       if (userCredential.user != null) {
-        _showDialog('Successfully logined');
-        // Successful login
+        // Navigate to the new page
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => WelcomePage()),
+        );
       } else {
         // Incorrect username or password
         _showDialog('Incorrect username or password');
       }
     } on FirebaseAuthException catch (e) {
       // Handle errors
-      _showDialog('Incorrect username or password:${e.message}');
+      _showDialog('Incorrect username or password');
     }
   }
 
@@ -81,20 +85,27 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(233, 30, 99, 1),
       body: Stack(
         children: [
-          Positioned(
-            top: 0,
+          Positioned.fill(
+            child: Image.asset(
+              'assets/ai.png', // Replace with your image path
+              fit: BoxFit.cover,
+            ),
+          ),
+          const Positioned(
+            top: 40,
             left: 0,
             right: 0,
-            child: Container(
-              height: 200,
-              color: Colors.transparent,
-              child: Image.asset(
-                'assets/logo.png',
-                width: 200,
-                height: 200,
+            child: Align(
+              alignment: Alignment.topCenter,
+              child: Text(
+                'REAL TIME INCIDENT NOTIFICATION SYSTEM FOR PUBLIC SAFETY USING CCTV FEEDS',
+                style: TextStyle(
+                  fontSize: 35,
+                  fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(255, 0, 255, 30),
+                ),
               ),
             ),
           ),
@@ -105,27 +116,28 @@ class _LoginPageState extends State<LoginPage> {
             child: Center(
               child: Column(
                 children: [
-                  Text(
+                  const Text(
                     "Let's sign you in",
                     style: TextStyle(
                       fontSize: 28,
-                      color: Colors.white,
+                      color: Color.fromARGB(255, 255, 0, 0),
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 8), // Add SizedBox for spacing
-                  Text(
+                  const SizedBox(height: 8), // Add SizedBox for spacing
+                  const Text(
                     "Welcome back, you've been missed!",
                     style: TextStyle(
                       fontSize: 24,
-                      color: Colors.white,
+                      color: Color.fromARGB(255, 255, 0, 0),
                     ),
                   ),
-                  SizedBox(height: 30), // Add SizedBox for spacing
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 32),
-                    child: SizedBox(
-                      width: 400,
+                  const SizedBox(height: 30), // Add SizedBox for spacing
+                  SizedBox(
+                    height: 50,
+                    width: 600,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 32),
                       child: TextField(
                         controller: _emailController,
                         decoration: InputDecoration(
@@ -139,11 +151,12 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 50), // Add SizedBox for spacing
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 32),
-                    child: SizedBox(
-                      width: 400,
+                  const SizedBox(height: 30), // Add SizedBox for spacing
+                  SizedBox(
+                    height: 50,
+                    width: 600,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 32),
                       child: TextField(
                         controller: _passwordController,
                         obscureText: true,
@@ -158,26 +171,24 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 20), // Add SizedBox for spacing
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 32),
-                    child: SizedBox(
-                      width: 400,
-                      child: ElevatedButton(
-                        onPressed: _signInWithEmailAndPassword,
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.white, // background color
-                          onPrimary:
-                              Color.fromRGBO(233, 30, 99, 1), // text color
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8),
-                          ),
+                  const SizedBox(height: 30), // Add SizedBox for spacing
+                  SizedBox(
+                    height: 50,
+                    width: 535, // Adjust the width as needed
+                    child: ElevatedButton(
+                      onPressed: _signInWithEmailAndPassword,
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
                         ),
-                        child: Text(
-                          'Login',
-                          style: TextStyle(
-                            fontSize: 18,
-                          ),
+                        elevation: 60,
+                        backgroundColor: Colors.white, // Specify a color here
+                      ),
+                      child: const Text(
+                        'Login',
+                        style: TextStyle(
+                          fontSize: 22,
+                          color: Color.fromRGBO(233, 30, 30, 1),
                         ),
                       ),
                     ),
